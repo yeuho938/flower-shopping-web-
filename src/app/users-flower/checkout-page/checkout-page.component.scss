@@ -1,0 +1,132 @@
+%labelStyle {
+  color: gray;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+%inputStyle {
+  padding: 8px 4px;
+  width: 70%;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+%numberStyle {
+  color: white;
+  background: red;
+  border-radius: 50%;
+  padding: 7px;
+  margin-right: 5px;
+}
+
+%btnPayment {
+  margin: 10px;
+  padding: 7px 13px;
+  background: orange;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+%hoverStyle {
+  transition: 0.8s all;
+  color: white;
+  cursor: pointer;
+  background: #19c219;
+}
+
+.box-checkout {
+  width: 100%;
+  margin-bottom: 30px;
+
+  .checkout {
+    width: 60%;
+    margin: 0 20%;
+
+    &-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .label {
+        &--name {
+          @extend %labelStyle;
+        }
+
+        &--address {
+          @extend %labelStyle;
+        }
+
+        &--phone {
+          @extend %labelStyle;
+        }
+      }
+
+      .input {
+        &--name {
+          @extend %inputStyle;
+        }
+
+        &--address {
+          @extend %inputStyle;
+        }
+
+        &--phone {
+          @extend %inputStyle;
+        }
+      }
+
+      .form-info-number {
+        @extend %numberStyle;
+
+        &:hover {
+          @extend %hoverStyle;
+        }
+      }
+    }
+  }
+}
+
+.table-order {
+  &-number {
+    @extend %numberStyle;
+
+    &:hover {
+      @extend %hoverStyle;
+    }
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table, td, th {
+    border: 1px solid black;
+  }
+
+  .td--btn-payment {
+    border: none !important;
+
+    .btn-text {
+      float: left;
+      @extend %btnPayment;
+      background: #95A5A6;
+    }
+
+    .btn-payment {
+      float: right;
+      @extend %btnPayment;
+
+      &:hover {
+        @extend %hoverStyle;
+        border: 1px solid gray;
+      }
+    }
+  }
+}

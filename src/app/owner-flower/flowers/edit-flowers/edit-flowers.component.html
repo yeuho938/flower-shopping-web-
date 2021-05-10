@@ -1,0 +1,26 @@
+<div class="form--edit">
+  <h2 class="form--edit-title"><i class="fas fa-spa" routerLink="/flower/list"></i> /  Update flower</h2>
+  <form>
+   <div class="form--group">
+     <div class="form--field name">
+       <label class="field--label"> Name</label><br>
+       <input class="field--input" type ="text"  [(ngModel)]="flower.name" [ngModelOptions]="{standalone: true}">
+     </div>
+    <div class="form--field price">
+      <label class="field--label"> Price</label><br>
+      <input class="field--input" type ="number" [(ngModel)]="flower.price" [ngModelOptions]="{standalone: true}" >
+    </div>
+   </div>
+   <div class="form--group" >
+     <div class="form--field image">
+       <label class="field--label"> Image</label><br>
+       <input class="field--input" type ="text"  [(ngModel)]="flower.image" [ngModelOptions]="{standalone: true}">
+     </div>
+     <div class="form--field stock">
+       <label class="field--label"> Remaining Stock</label><br>
+       <input class="field--input" type ="number"  [(ngModel)]="flower.remainingStock" [ngModelOptions]="{standalone: true}">
+     </div>
+   </div>
+    <button type ="submit" class="form--button"> Update</button>
+ </form>
+</div>

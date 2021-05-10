@@ -1,0 +1,46 @@
+<div class="box-checkout">
+  <div class="checkout">
+    <form class="checkout-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="form-info">
+      <h2> <a class="form-info-number"> 1 </a> Fill in your information</h2>
+      <label class="label--name"> Full name</label><br>
+      <input type="text" class="input--name" placeholder="Enter your fullName" formControlName="name" ><br>
+      <label class="label--address">Address</label><br>
+      <input type="text" class="input--address" placeholder="Enter your address" formControlName="address"><br>
+      <label class="label--phone">Phone Number</label><br>
+      <input type="text" class="input--phone" placeholder="Enter your phone number" formControlName="phone">
+    </div>
+    <div class="table-order">
+      <h2> <a class="table-order-number"> 2 </a> Order review</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let flower of flowerInCart">
+          <td>{{flower.name}}</td>
+          <td><img src="{{flower.image}}" class="image">
+          </td>
+          <td>{{flower.quantity}}</td>
+          <td>{{flower.price}}</td>
+        </tr>
+        <tr>
+          <td colspan="4">Total : {{totalCart}}</td>
+        </tr>
+        <tr>
+          <td class="td--btn-payment" colspan="4">
+            <button class="btn-text" routerLink="/orderUser" [ngStyle]="{display: orderDisplay}"> Go to see your orders > </button>
+            <button class="btn-payment" type="submit"> Payment</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    </form>
+  </div>
+</div>

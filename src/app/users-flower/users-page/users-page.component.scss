@@ -1,0 +1,17 @@
+%width-height{
+  width: 100%;
+  height: 100%;
+}
+.homepage{
+  @extend %width-height;
+  .box-footer{
+    @extend %width-height;
+    background: #95A5A6;
+  }
+  .box-header{
+    @extend %width-height;
+  }
+  .box-content{
+    @extend %width-height;
+  }
+}
