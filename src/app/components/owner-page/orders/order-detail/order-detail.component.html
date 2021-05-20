@@ -1,0 +1,49 @@
+<div class="order-detail" *ngFor="let order of orders">
+  <ul class="breadcrumb">
+    <div *ngIf="isLoginSuccess; else OrderUserPage ">
+    <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/order">Order </a></li>
+    <li class="breadcrumb-item"><a routerLink="">Order detail </a></li>
+    </div>
+    <ng-template #OrderUserPage>
+      <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/orderUser">Order </a></li>
+      <li class="breadcrumb-item"><a routerLink="">Order detail </a></li>
+    </ng-template>
+  </ul>
+  <h1 class="order-detail--title"> Order Detail</h1>
+  <div class="info-detail-order">
+    <div class="info-user">
+      <h1> <a class="numerical-one">1</a> User information</h1>
+      <p class="name-user"><strong>Name</strong> : {{order.info.name}}</p>
+      <p class="address"> <strong>Address</strong>: {{order.info.address}}</p>
+      <p class="phone"> <strong>Phone</strong>: {{order.info.phone}}</p>
+    </div>
+    <div class="info-flower" >
+      <h1><a class="numerical-two">2</a> Product information</h1>
+      <table class="flower-table">
+        <thead class="table--header">
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody class="table--body">
+        <tr *ngFor="let flower of order.flowers">
+          <td>{{flower.name}}</td>
+          <td><img src="{{flower.image}}" class="image-flower"></td>
+          <td>{{flower.quantity}}</td>
+          <td>{{flower.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+  </div>
+  <div>
+  </div>
+    <h2 class="total-price"> <strong>Tổng tiền </strong>: {{totalOrder | currency: 'VND':true:'1.0'}}</h2>
+</div>

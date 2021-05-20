@@ -1,0 +1,147 @@
+%labelStyle {
+  color: gray;
+  font-size: 1.2rem;
+  margin: 10px 20px;
+  font-weight: bold;
+}
+
+%inputStyle {
+  padding: 8px 4px;
+  width: 80%;
+  border-radius: 5px;
+  margin: 10px 20px;
+}
+
+%numberStyle {
+  color: white;
+  background: red;
+  border-radius: 50%;
+  padding: 7px;
+  margin-right: 5px;
+}
+
+%btnPayment {
+  margin: 10px;
+  padding: 7px 13px;
+  background: orange;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+%hoverStyle {
+  transition: 0.8s all;
+  color: white;
+  cursor: pointer;
+  background: #19c219;
+}
+
+.box-checkout-page {
+  width: 100%;
+  margin-bottom: 30px;
+
+  .checkout-page {
+    width: 70%;
+    margin: 0 auto;
+    .checkout-form {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr;
+    }
+  }
+}
+
+.info-user {
+  .serial {
+    @extend %numberStyle;
+
+    &:hover {
+      @extend %hoverStyle;
+    }
+  }
+
+  .label {
+    &--name {
+      @extend %labelStyle;
+    }
+
+    &--address {
+      @extend %labelStyle;
+    }
+
+    &--phone {
+      @extend %labelStyle;
+    }
+  }
+
+  .input {
+    &--name {
+      @extend %inputStyle;
+    }
+
+    &--address {
+      @extend %inputStyle;
+    }
+
+    &--phone {
+      @extend %inputStyle;
+    }
+  }
+}
+
+.info-product {
+  width: 100%;
+  .serial {
+    @extend %numberStyle;
+
+    &:hover {
+      @extend %hoverStyle;
+    }
+  }
+
+  .image-flower {
+    width: 100px;
+    height: 100px;
+  }
+
+  .table-product {
+    border-collapse: collapse;
+    width: 97%;
+    margin-top: 30px;
+    margin-left:3%;
+    .col-totalPrice{
+      padding: 10px 10px;
+      font-size: 18px;
+    }
+  }
+
+  .table-product, td, th {
+    border: 1px solid black;
+  }
+
+  .td--payment {
+    border: none !important;
+
+    .btn-seeOrder {
+      float: left;
+      @extend %btnPayment;
+      background: #95A5A6;
+    }
+
+    .btn-payment {
+      float: right;
+      @extend %btnPayment;
+
+      &:hover {
+        @extend %hoverStyle;
+        border: 1px solid gray;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .checkout-form {
+    display: grid;
+    grid-template-columns: 1fr!important;
+  }
+}

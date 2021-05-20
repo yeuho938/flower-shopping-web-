@@ -1,0 +1,106 @@
+.header{
+  width: 100%;
+  &--first{
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    .shop-name{
+      .name-title{
+        margin: 5px 0;
+        font: italic small-caps bold 22px/30px Georgia, serif;
+        color: hotpink;
+        &:hover{
+          transition: 0.9s all;
+          font-size: 1.4rem;
+          color:deeppink;
+          font-weight: bold;
+        }
+      }
+    }
+    .search-bar {
+      width: 90%;
+      .search-input{
+        padding: 8px;
+        border-radius: 5px;
+        outline: navajowhite;
+        width: 100%;
+        &:focus{
+          transition: 0.6s all;
+          border-bottom: 2px solid hotpink;
+        }
+      }
+    }
+    .list-icons .fas{
+      padding-left: 20px;
+      margin: 5px 0;
+      &:hover{
+        transition: 0.6s all;
+        color: hotpink;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  &--second{
+    .menu{
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      border-bottom: 1px solid grey;
+      border-top: 1px solid grey;
+      &--item{
+        list-style-type: none;
+        padding: 10px;
+        &:hover{
+          transition: 0.9s all;
+          font-size: 1.1rem;
+          color:gray;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .65);
+  display: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: white;
+  width:50%;
+  margin: auto;
+  border-radius: 3px;
+}
+.modal-close{
+  float: right;
+}
+.modal-header {
+  padding: 12px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-body {
+  padding: 12px 24px 24px;
+  margin: 0 auto;
+  width: 80%;
+}

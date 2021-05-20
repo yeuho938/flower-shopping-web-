@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+.breadcrumb {
+  padding: 0;
+
+  &-item {
+    padding: 10px 5px;
+    list-style: none;
+    background-color: #eee;
+    display: inline;
+    font-size: 18px;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: #01447e;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+  }
+  .breadcrumb-item + .breadcrumb-item:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+}
+@media only screen and (max-width: 680px) {
+  .homepage{
+    margin-left: -5px!important;
+    padding: 0!important;
+  }
+  .gridImage--row-1{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .gridImage--row-2{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .list-flower{
+    width: 100% !important;
+    margin: 0!important;
+    grid-template-columns: 1fr 1fr 1fr!important;
+    grid-row-gap: 20px!important;
+    grid-column-gap: 20px!important;
+  }
+  .gallery--image{
+    display: grid!important;
+    grid-row-gap: 20px!important;
+    grid-template-columns: 1fr 1fr 1fr!important;
+  }
+  .box--gallery {
+    width: 100% !important;
+    text-align: center;
+    margin: 3% 0 5% 0 !important;
+  }
+  .footer .listItems{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr!important;
+  }
+  .signup--form{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .header--second .menu{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .context p{
+    font-size: 1rem;
+  }
+  .context h1{
+    font-size: 1.5rem;
+  }
+  .checkout-page{
+    width: 100% !important;
+    margin:0!important;
+  }
+  .list-order-user{
+    width: 95% !important;
+    margin:0 auto!important;
+    padding: 0!important;
+  }
+  .order-table{
+    width: 100% !important;
+    padding: 0!important;
+    margin: 0!important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  /*Responsive for User page*/
+  .homepage{
+    padding: 0!important;
+  }
+  .box-content-user{
+    width: 100% !important;
+  }
+  .gridImage--row-1{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .gridImage--row-2{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .list-flower{
+    width: 100% !important;
+    margin: 0 0!important;
+  }
+  .box--gallery {
+    width: 100% !important;
+    text-align: center;
+    margin: 3% 0 5% 0 !important;
+  }
+  .header--first{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .header--second .menu{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .footer .listItems{
+    width: 100% !important;
+    margin: 0!important;
+  }
+  .box-cart{
+    width: 95% !important;
+    margin: 0 auto!important;
+  }
+  .checkout-page{
+    width: 100% !important;
+    margin:0!important;
+  }
+  .list-order-user{
+    width: 95% !important;
+    margin:0 auto!important;
+    padding: 0!important;
+  }
+  .order-table{
+    width: 100% !important;
+    padding: 0!important;
+    margin: 0!important;
+  }
+
+  /* Responsive for OWNER page */
+  .box-navigation{
+    width: 0% !important;
+  }
+  .owner-page{
+    display: block!important;
+  }
+  .box-content{
+    width: 95% !important;
+  }
+  /* ORDER */
+  .list-order-owner{
+    width: 96% !important;
+    margin-top: 5px!important;
+    position: absolute;
+    margin-left: -8px!important;
+  }
+  .info-order-owner-table{
+    width: 96% !important;
+    margin-left: -20px!important;
+  }
+  .list-order-owner-title{
+    margin-top: 50px!important;
+  }
+  .order-detail--title{
+    margin-top: 50px!important;
+    width: 100% !important;
+  }
+  /* FLOWER */
+  .list-flower-owner{
+    margin-top: 35px!important;
+    position: absolute;
+    width: 96% !important;
+    margin-left: -8px!important;
+  }
+  .list-flower-owner-title{
+    width: 30% !important;
+  }
+  .info-flower-table{
+    width: 96%!important;
+    margin-left: -20px!important;
+  }
+  /*EDIT FORM*/
+  .edit-flower{
+    position: absolute!important;
+    margin-top: 35px!important;
+    width: 100% !important;
+  }
+  .edit-flower-title{
+    width: 40% !important;
+  }
+  .form--edit{
+    margin-top: 10px!important;
+    width: 100% !important;
+  }
+}

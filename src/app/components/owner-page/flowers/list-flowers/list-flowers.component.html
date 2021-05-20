@@ -1,0 +1,26 @@
+<div class="list-flower-owner">
+  <ul class="breadcrumb">
+      <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/flower">List flower </a></li>
+  </ul>
+  <h1 class="list-flower-owner-title"> List Flowers</h1>
+  <ul class="info-flower-table">
+    <li class="table-header">
+      <div class="col id">Id</div>
+      <div class="col name">Name</div>
+      <div class="col image">Image</div>
+      <div class="col price">Price</div>
+      <div class="col stock"> Remaining stock</div>
+      <div class="col edit"> Action</div>
+    </li>
+    <li class="table-body" *ngFor="let flower of flowers">
+      <div class="col id" >{{flower.id}}</div>
+      <div class="col name" >{{flower.name}}</div>
+      <div class="col image" ><img src="{{flower.image}}"></div>
+      <div class="col price" >{{flower.price| currency: 'VND':true:'1.0'}}</div>
+      <div class="col stock" >{{flower.remainingStock}}</div>
+      <div class="col edit" ><button type="submit" class="btn-edit" [routerLink]="['/flower', flower.id,'edit']"><i class="fas fa-edit"></i></button></div>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

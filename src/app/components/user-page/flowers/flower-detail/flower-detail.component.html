@@ -1,0 +1,33 @@
+<div class="detail-page">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/list-flower">List flowers </a></li>
+    <li class="breadcrumb-item"><a routerLink="">Detail flower </a></li>
+  </ul>
+  <div class="detail-page-title">
+    <h1> Detail flower</h1>
+  </div>
+  <div class="content">
+    <div class="content--image">
+      <img src="{{flowerDetail.image}}" class="flower-image">
+    </div>
+    <div class="content--context">
+      <h1 class="flower-name">{{flowerDetail.name}}</h1>
+      <p class="flower-price">{{flowerDetail.price| currency: 'VND':true:'1.0'}}</p>
+      <p class="flower-description">{{flowerDetail.description}}</p>
+      <div class="add-to-cart" *ngIf="flowerDetail.remainingStock < 0; else NodisableButton">
+        <p class="flower-status"> Out of stock</p>
+        <button class="btn addToCart" (click)="addToCart(flowerDetail)" [ngClass]="'disabled'" ><i
+          class="fas fa-cart-plus"></i></button>
+      </div>
+      <ng-template #NodisableButton>
+        <div class="add-to-cart">
+          <p class="flower-status"> Instock</p>
+          <button class="btn addToCart" (click)="addToCart(flowerDetail)">
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

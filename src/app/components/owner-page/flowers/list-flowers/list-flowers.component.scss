@@ -1,0 +1,84 @@
+%itemTable{
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.list-flower-owner {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-flower-table {
+  width: 95%;
+  height: 800px;
+  overflow: auto;
+
+  .table-header {
+    width: 100%;
+    @extend %itemTable;
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .table-body {
+    width: 100%;
+    @extend %itemTable;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .col {
+    &.id {
+      flex-basis: 5%;
+    }
+
+    &.name {
+      flex-basis: 15%;
+    }
+
+    &.image {
+      flex-basis: 30%;
+
+      img {
+        width: 90%;
+        height: 150px;
+      }
+    }
+
+    &.price {
+      flex-basis: 20%;
+    }
+
+    &.stock {
+      flex-basis: 20%;
+    }
+
+    &.edit {
+      flex-basis: 10%;
+
+      .btn-edit {
+        background: red;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 10px;
+
+        &:hover {
+          transition: 0.8s all;
+          color: #2f89fc;
+          background-color: #19c219;
+          cursor: pointer;
+        }
+      }
+
+      .fas.fa-edit {
+        color: white;
+      }
+    }
+  }
+}

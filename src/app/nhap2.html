@@ -1,0 +1,83 @@
+<!--import {Injectable} from '@angular/core';-->
+<!--import {Flower} from '../model/flower.class';-->
+<!--import {Cart} from '../model/cart.class';-->
+
+<!--@Injectable({-->
+<!--providedIn: 'root'-->
+<!--})-->
+<!--export class CartService {-->
+<!--itemsCart: Cart[] = [];-->
+<!--dataInCart = JSON.parse(localStorage.getItem('infoCart'));-->
+<!--totalPrice = JSON.parse(localStorage.getItem('totalPriceCart'));-->
+<!--cartTotal = 0;-->
+<!--idCart = 1;-->
+
+<!--constructor() {-->
+<!--}-->
+
+<!--addToCart(flower: Flower): void {-->
+<!--let productExit;-->
+<!--if (this.dataInCart == null) {-->
+<!--this.itemsCart.push({-->
+<!--id: this.idCart,-->
+<!--idFlower: flower.id,-->
+<!--name: flower.name,-->
+<!--image: flower.image,-->
+<!--quantity: 1,-->
+<!--price: flower.price-->
+<!--});-->
+<!--localStorage.setItem('infoCart', JSON.stringify(this.itemsCart));-->
+<!--this.itemsCart.forEach(item => {-->
+<!--this.cartTotal += (item.quantity * item.price);-->
+<!--});-->
+<!--localStorage.setItem('totalPriceCart', JSON.stringify(this.cartTotal));-->
+<!--console.log('yeu');-->
+<!--} else {-->
+<!--console.log('yeu12');-->
+<!--for (const data in this.dataInCart) {-->
+<!--if (this.dataInCart[data].idFlower === flower.id) {-->
+<!--this.dataInCart[data].quantity++;-->
+<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
+<!--productExit = true;-->
+<!--}-->
+<!--}-->
+<!--if (!productExit){-->
+<!--this.dataInCart.push({-->
+<!--id: this.idCart++,-->
+<!--idFlower: flower.id,-->
+<!--name: flower.name,-->
+<!--image: flower.image,-->
+<!--quantity: 1,-->
+<!--price: flower.price-->
+<!--});-->
+<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
+<!--this.dataInCart.forEach(item => {-->
+<!--this.cartTotal += (item.quantity * item.price);-->
+<!--});-->
+<!--localStorage.setItem('totalPriceCart', JSON.stringify(this.cartTotal));-->
+<!--}-->
+<!--  }-->
+<!--alert('Add to cart successful');-->
+<!--}-->
+
+<!--deleteAnItem(id: number): void {-->
+<!--const index = this.dataInCart.findIndex(element => element.idFlower === id);-->
+<!--this.dataInCart = this.dataInCart.splice(index, 1);-->
+<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
+<!--}-->
+
+<!--onChangeQuantity(quantity: number, id: number, isIncrease: boolean): void {-->
+<!--const index = this.dataInCart.findIndex(element => element.idFlower === id);-->
+<!--if (isIncrease === true) {-->
+<!--this.dataInCart[index].quantity = quantity + 1;-->
+<!--} else {-->
+<!--this.dataInCart[index].quantity = quantity - 1;-->
+<!--}-->
+<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
+<!--}-->
+
+<!--clearCart(): any {-->
+<!--this.itemsCart = [];-->
+<!--return this.itemsCart;-->
+<!--}-->
+<!--  }-->

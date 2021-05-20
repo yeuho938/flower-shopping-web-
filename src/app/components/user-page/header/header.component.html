@@ -1,0 +1,41 @@
+<div class="header">
+  <div class="header--first">
+    <div class="shop-name">
+     <h3 class="name-title">Beautiful Flower</h3>
+    </div>
+    <div class="search-bar">
+      <input type ="text" name="search" class="search-input" placeholder="Search ..." >
+    </div>
+    <div class="list-icons">
+      <i class="fas fa-cog" routerLink="/orderUser"></i>
+      <i id="control-modal" class="fas fa-user " (click)="ToggleModal()" ></i>
+      <div class="modal" [style]="{display: isOpenModel?'block': 'none'}">
+        <div class="modal-content">
+          <div class="modal-header">
+            <label for="control-modal" class="modal-close" (click)="ToggleModal()">X</label>
+            <h3>LOGIN</h3>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <label > Username</label><br>
+              <input type="text" placeholder="Enter your username" formControlName="username"><br>
+              <label>Password</label><br>
+              <input type="text" placeholder="Enter your password" formControlName="password"><br>
+              <button type="submit">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <i class="fas fa-shopping-cart" routerLink="/cart"></i>
+    </div>
+  </div>
+  <div class="header--second">
+   <ul class="menu">
+     <li class="menu--item" routerLink="/home" (click)="ToggleHomePage()">HOME</li>
+     <li class="menu--item" routerLink="/list-flower" (click)="ToggleHomePage()"> FLOWER</li>
+     <li class="menu--item">BLOG</li>
+     <li class="menu--item">ABOUT US</li>
+     <li class="menu--item">CONTACT</li>
+   </ul>
+  </div>
+</div>

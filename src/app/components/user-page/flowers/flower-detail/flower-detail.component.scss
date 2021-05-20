@@ -1,0 +1,83 @@
+.detail-page{
+  width: 70%;
+  margin: 0 auto;
+  .content{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-column-gap: 20px;
+    &--image{
+      width: 100%;
+    }
+    &--context{
+      width: 100%;
+    }
+    .flower{
+      &-image{
+        width: 100%;
+        height: 90%;
+      }
+      &-price{
+        color: red;
+      }
+      &-description{
+        word-wrap: break-word;
+        width: 80%;
+      }
+      &-status{
+        color: red;
+        font-weight: bold;
+      }
+    }
+    .add-to-cart{
+      position: absolute;
+      display: inline-flex;
+      margin-left: 0;
+      z-index: 10;
+      .btn {
+        padding: 10px;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        background-color: orangered;
+        margin: 10px 10px 10px 10px;
+
+        &:hover {
+          transition: 0.8s all;
+          color: white;
+          background-color: green;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  color: #AAA;
+  background: gray !important;
+}
+
+.noDisabled {
+  pointer-events: auto;
+  background-color: orangered !important;
+}
+
+@media only screen and (max-width: 680px) {
+  .detail-page {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  .content {
+    grid-template-columns: 1fr!important;
+    grid-column-gap: 0!important;
+    margin-bottom: 50px!important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .detail-page{
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,44 @@
+<div class="list-order-owner">
+  <ul class="breadcrumb">
+    <div *ngIf="isLoginSuccess; else OrderUserPage ">
+    <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/order">Order </a></li>
+    </div>
+    <ng-template #OrderUserPage>
+      <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/orderUser">Order </a></li>
+    </ng-template>
+  </ul>
+  <h1 class="list-order-owner-title"> List orders</h1>
+  <ul class="info-order-owner-table">
+    <li class="table-header">
+      <div class="col id">Id</div>
+      <div class="col name-user">Name User </div>
+      <div class="col phone">Phone</div>
+      <div class="col address">Address</div>
+      <div class="col total-price"> Total price</div>
+      <div class="col view-detail"> Flower</div>
+    </li>
+    <li class="table-body" *ngFor="let order of orders" >
+      <div class="col id" >{{order.id}}</div>
+      <div class="col name-user" >{{order.info.name}}</div>
+      <div class="col phone" >{{order.info.phone}}</div>
+      <div class="col address" >{{order.info.address}}</div>
+      <div class="col total-price" >{{totalPrice}}</div>
+      <div class="col view-detail">
+        <div *ngIf="isLoginSuccess; else OrderUserPage ">
+          <button type="submit" class="btn-view-detail" [routerLink]="['/order', order.id]">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <ng-template #OrderUserPage>
+          <button type="submit" class="btn-view-detail" [routerLink]="['/orderUser', order.id]">
+            <i class="fas fa-eye"></i>
+          </button>
+        </ng-template>
+      </div>
+
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

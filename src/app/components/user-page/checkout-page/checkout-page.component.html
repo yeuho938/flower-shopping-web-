@@ -1,0 +1,57 @@
+<div class="box-checkout-page">
+  <div class="checkout-page">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/cart">Cart </a></li>
+      <li class="breadcrumb-item"><a routerLink="/checkout">Checkout page</a></li>
+    </ul>
+    <h1 class="checkout-page-title">
+      Checkout page
+     </h1>
+    <form class="checkout-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmitOrder()">
+      <div class="info-user">
+        <h2><a class="serial"> 1 </a> Fill in your information</h2>
+        <label class="label--name"> Full name</label><br>
+        <input type="text" class="input--name" placeholder="Enter your fullName" formControlName="name"><br>
+        <label class="label--address">Address</label><br>
+        <input type="text" class="input--address" placeholder="Enter your address" formControlName="address"><br>
+        <label class="label--phone">Phone Number</label><br>
+        <input type="text" class="input--phone" placeholder="Enter your phone number" formControlName="phone">
+      </div>
+      <div class="info-product">
+        <h2><a class="serial"> 2 </a> Product Review</h2>
+        <table class="table-product">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let dataCart of dataCarts" style="text-align: center">
+            <td>{{dataCart.name}}</td>
+            <td><img src="{{dataCart.image}}" class="image-flower"></td>
+            <td>{{dataCart.quantity}}</td>
+            <td>{{dataCart.price}}</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="col-totalPrice">
+              <strong>Total :</strong> {{totalPriceCart| currency: 'VND':true:'1.0'}}
+            </td>
+          </tr>
+          <tr>
+            <td class="td--payment" colspan="4">
+              <button class="btn-seeOrder" routerLink="/orderUser" [ngStyle]="{display: orderDisplay}">
+                Go to see your orders >
+              </button>
+              <button class="btn-payment" type="submit"> Payment</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

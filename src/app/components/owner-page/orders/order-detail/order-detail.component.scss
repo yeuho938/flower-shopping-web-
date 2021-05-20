@@ -1,0 +1,62 @@
+%numerical-order-style {
+  background-color: orangered;
+  color: white;
+  border-radius: 50%;
+  padding: 10px 15px;
+}
+
+.order-detail {
+  width: 100%;
+
+  .info-detail-order {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-column-gap: 30px;
+  }
+
+  .info {
+    &-user {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      padding: 20px;
+
+      .numerical-one {
+        @extend %numerical-order-style;
+      }
+    }
+
+    &-flower {
+      padding: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+      .numerical-two {
+        @extend %numerical-order-style;
+      }
+
+      .flower-table {
+        text-align: center;
+
+        img {
+          width: 150px;
+          height: 150px;
+          padding-left: 60px;
+          padding-top: -10px;
+        }
+
+        thead, tr, th {
+          border-bottom: 2px solid gray;
+        }
+
+        tbody, th, td {
+          border-bottom: 2px solid gray;
+        }
+      }
+    }
+  }
+
+  .total-price {
+    color: red;
+  }
+}

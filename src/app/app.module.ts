@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {OwnerFlowerModule} from './owner-flower/owner-flower.module';
 import { AppComponent } from './app.component';
-import {UsersFlowerModule} from './users-flower/users-flower.module';
+import {UsersFlowerModule} from './components/user-page/users-flower.module';
+import {OwnerFlowerModule} from './components/owner-page/owner-flower.module';
 
 @NgModule({
   declarations: [
@@ -10,8 +10,8 @@ import {UsersFlowerModule} from './users-flower/users-flower.module';
   ],
   imports: [
     BrowserModule,
-    OwnerFlowerModule,
-    UsersFlowerModule
+    UsersFlowerModule,
+    OwnerFlowerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

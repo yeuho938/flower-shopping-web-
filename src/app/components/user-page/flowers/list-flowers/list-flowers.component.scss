@@ -1,0 +1,88 @@
+.list-flowers-page {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.list-flowers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  margin: 0 auto;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+
+  .flower--items {
+    text-align: center;
+
+    .flower--image {
+      width: 100%;
+      height: 65%;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+      &:hover {
+        transition: 0.8s all;
+        opacity: 0.8;
+      }
+
+      &:hover ~ .addCart-ViewDetail {
+        transition: 0.8s all;
+        z-index: 999;
+      }
+    }
+
+    .addCart-ViewDetail {
+      position: absolute;
+      display: inline-grid;
+      margin-left: -40px;
+      float: left;
+      margin-top: 5%;
+      z-index: 10;
+
+      .btn {
+        padding: 10px;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        background-color: orangered;
+        margin: 10px 0;
+
+        &:hover {
+          transition: 0.8s all;
+          color: white;
+          background-color: green;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  color: #AAA;
+  background: gray !important;
+}
+
+.noDisabled {
+  pointer-events: auto;
+  background-color: orangered !important;
+}
+
+@media only screen and (max-width: 680px) {
+  .list-flowers-page {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  .list-flowers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .list-flowers-page {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}
