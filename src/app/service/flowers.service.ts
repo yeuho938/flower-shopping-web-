@@ -51,7 +51,7 @@ export class FlowersService {
       },
       {
         id: 5,
-        name: 'Rose Land',
+        name: 'The Sky ',
         description: 'Some Viola species are perennial plants, some are annual plants, and a few are small shrubs. Many species, ' +
           'and cultivars are grown in gardens for their flowers.',
         image: 'https://diachishophoa.com/uploads/sanpham/hoa-bo-sinh-nhat-1563427449-0qrsw.jpg',
@@ -86,21 +86,7 @@ export class FlowersService {
         remainingStock: 70
       }
     ];
-    const ordersPaid = JSON.parse(localStorage.getItem('purchasedOrders'));
-    if (ordersPaid != null) {
-      for (const flower of this.listFlowers) {
-        for (const order of ordersPaid) {
-          for (const infoCart of order.flowers) {
-            if (flower.id === infoCart.id) {
-              flower.remainingStock = flower.remainingStock - infoCart.quantity;
-            }
-          }
-        }
-        return this.listFlowers;
-      }
-    } else {
-      return this.listFlowers;
-    }
+    return this.listFlowers;
   }
 
   getFlowerById(id: number): any {

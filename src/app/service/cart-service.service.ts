@@ -9,7 +9,6 @@ export class CartService {
   itemsCart: Cart[] = [];
   cartTotal = 0;
   idCart = 1;
-
   constructor() {
   }
 
@@ -42,10 +41,15 @@ export class CartService {
     }
     alert('Add to cart successful');
   }
+
   setTotalPrice(dataInCart: any): void {
-    dataInCart.forEach(item => {
-      this.cartTotal += (item.quantity * item.price);
-    });
+    // dataInCart.forEach(item => {
+    //   this.cartTotal += (item.quantity * item.price);
+    // });
+    for (const item of dataInCart) {
+      this.cartTotal += item.quantity * item.price;
+    }
+    console.log(this.cartTotal);
     localStorage.setItem('totalPriceCart', JSON.stringify(this.cartTotal));
   }
 
@@ -60,25 +64,32 @@ export class CartService {
   getTotalPrice(): any {
     return JSON.parse(localStorage.getItem('totalPriceCart'));
   }
-  onDeleteAnItem(id: number): void {
-    let dataCart = this.getCartData();
-    const index = dataCart.findIndex(element => element.id === id);
-    if (index > -1) {
-      dataCart = dataCart.splice(index, 1);
-      this.setCartData(dataCart);
-    }
-  }
 
-  onChangeQuantity(quantity: number, id: number, isIncrease: boolean): void {
+  onDeleteItem(id: number): void {
     const dataCart = this.getCartData();
-    const index = dataCart.findIndex(element => element.idFlower === id);
-    if (isIncrease === true) {
-      dataCart[index].quantity = quantity + 1;
-    } else {
-      dataCart[index].quantity = quantity - 1;
+    for (const item of dataCart) {
+      if (item.idFlower === id){
+        dataCart.splice(item, 1);
+      }
     }
     this.setCartData(dataCart);
+    this.setTotalPrice(dataCart);
   }
+  onChangeQuantity(quantity: number, id: number, isIncrease: boolean): void {
+    const dataCart = this.getCartData();
+    for (const item of dataCart) {
+      if (item.idFlower === id){
+        if (isIncrease === true) {
+          item.quantity = quantity + 1;
+        } else {
+          item.quantity = quantity - 1;
+        }
+      }
+    }
+    this.setCartData(dataCart);
+    this.setTotalPrice(dataCart);
+  }
+
   clearCart(): any {
     this.itemsCart = [];
     return this.itemsCart;

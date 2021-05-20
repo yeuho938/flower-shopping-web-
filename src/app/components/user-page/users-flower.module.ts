@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {listRouteUser} from './users.router';
 import { FlowerDetailComponent } from './flowers/flower-detail/flower-detail.component';
 import { ListFlowersComponent } from './flowers/list-flowers/list-flowers.component';
+import {FlowersComponent} from './flowers/flowers/list-flowers.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListFlowersComponent } from './flowers/list-flowers/list-flowers.compon
     OrderDetailUserComponent,
     CheckoutPageComponent,
     FlowerDetailComponent,
-    ListFlowersComponent
+    ListFlowersComponent,
+    FlowersComponent
   ],
   exports: [
     UsersPageComponent,

@@ -1,0 +1,22 @@
+<div class="list-flowers-page">
+  <div class="list-flowers" #listFlower>
+    <div class="flower--items" *ngFor="let flower of listFlowers">
+      <img class="flower--image" [routerLink]="['/flower', flower.id]" src="{{flower.image}}">
+      <div class="addCart-ViewDetail" *ngIf="flower.remainingStock < 0; else NodisableButton">
+        <button class="btn addToCart" (click)="addToCart(flower)" [ngClass]="'disabled'" ><i
+          class="fas fa-cart-plus"></i></button>
+        <button class="btn viewDetail" [routerLink]="['/flower', flower.id]"><i class="fas fa-eye"></i></button>
+      </div>
+      <ng-template #NodisableButton>
+        <div class="addCart-ViewDetail">
+          <button class="btn addToCart" (click)="addToCart(flower)"><i class="fas fa-cart-plus"></i></button>
+          <button class="btn viewDetail" [routerLink]="['/flower', flower.id]"><i class="fas fa-eye"></i></button>
+        </div>
+      </ng-template>
+      <h3>{{flower.name}}</h3>
+      <h3>{{flower.price| currency: 'VND':true:'1.0'}}</h3>
+      <h3>{{flower.remainingStock}}</h3>
+    </div>
+  </div>
+</div>
+

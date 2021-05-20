@@ -8,7 +8,6 @@ export class OrdersService  {
   ordersPaid = JSON.parse(localStorage.getItem('purchasedOrders'));
   orders: any[] = [];
   idOrder = 0;
-
   constructor(public flowersService: FlowersService) {
   }
 
@@ -44,6 +43,21 @@ export class OrdersService  {
       });
       localStorage.setItem('purchasedOrders', JSON.stringify(this.ordersPaid));
     }
+    this.onChangeDataFlower();
     alert('Payment success');
+  }
+  onChangeDataFlower(): any{
+    const flowers = this.flowersService.getListFlower();
+    for (const flower of flowers) {
+      for (const order of this.ordersPaid) {
+        for (const infoCart of order.flowers) {
+          if (flower.id === infoCart.id) {
+            flower.remainingStock = flower.remainingStock - infoCart.quantity;
+            console.log(flower.remainingStock);
+          }
+        }
+      }
+    }
+    return flowers;
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from '../../../service/cart-service.service';
 import {Cart} from '../../../model/cart.class';
 
@@ -24,11 +24,13 @@ export class CartComponent implements OnInit {
   }
 
   onDeleteItem(id: number): void {
-    this.cartService.onDeleteAnItem(id);
+    this.cartService.onDeleteItem(id);
+    this.getDataCart();
   }
 
   onChangeQuantity(quantity: number, id: number, isIncrease: boolean): void {
     this.cartService.onChangeQuantity(quantity, id, isIncrease);
+    this.getDataCart();
   }
 
   clearCart(): void {
