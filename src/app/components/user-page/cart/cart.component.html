@@ -1,6 +1,6 @@
 <div class="box-cart">
   <ul class="breadcrumb">
-    <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
     <li class="breadcrumb-item"><a routerLink="/cart">Cart </a></li>
   </ul>
   <h1 class="cart-title"> Your shopping bag</h1>
@@ -10,7 +10,7 @@
       <div class="col price">Price</div>
       <div class="col quantity"> Quantity</div>
       <div class="col delete"> Delete
-        <button (click)="clearCart()">Clear all</button>
+        <i class="fas fa-trash-alt" (click)="clearCart()"></i>
       </div>
     </div>
     <div class="table--body" *ngFor="let data of dataCart">
@@ -20,21 +20,32 @@
       </div>
       <div class="col price">{{data.price}}</div>
       <div class="col quantity">
-        <button type="button" class="btn minus" (click)="onChangeQuantity(data.quantity, data.idFlower, true)">+</button>
+        <button type="button" class="btn minus" (click)="onChangeQuantity(data.quantity, data.idFlower, true)">
+          +
+        </button>
         {{data.quantity}}
-        <button type="button" class="btn plus" (click)="onChangeQuantity(data.quantity, data.idFlower, false)">-</button>
+        <button type="button" class="btn plus" (click)="onChangeQuantity(data.quantity, data.idFlower, false)">
+          -
+        </button>
       </div>
       <div class="col delete">
-        <button class="btn-delete" (click)="onDeleteItem(data.idFlower)"><i class="fas fa-minus-circle"></i></button>
+        <button class="btn-delete" (click)="onDeleteItem(data.idFlower)">
+          <i class="fas fa-minus-circle"></i>
+        </button>
       </div>
     </div>
     <div class="table--totalPrice">
-      <p> <strong>Total price: </strong>{{this.totalPrice| currency: 'VND':true:'1.0'}}</p>
+      <p><strong>Total price: </strong>
+        {{this.totalPrice| currency: 'VND':true:'1.0'}}
+      </p>
     </div>
     <div class="table--shopping-checkout">
-      <button type="submit" class="btn back-shopping" routerLink="/home">Back shopping</button>
-      <button type="submit" class="btn checkout" routerLink="/checkout">Checkout</button>
+      <button type="submit" class="btn back-shopping" routerLink="/home">
+        Back shopping
+      </button>
+      <button type="submit" class="btn checkout" routerLink="/checkout" [ngClass]="isProductExit?'none':'disabled'">
+        Checkout
+      </button>
     </div>
   </div>
-
 </div>

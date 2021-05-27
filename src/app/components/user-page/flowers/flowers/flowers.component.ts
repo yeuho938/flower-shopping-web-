@@ -6,25 +6,31 @@ import {OrdersService} from '../../../../service/orders.service';
 
 @Component({
   selector: 'app-flowers',
-  templateUrl: './list-flowers.component.html',
-  styleUrls: ['./list-flowers.component.scss']
+  templateUrl: './flowers.component.html',
+  styleUrls: ['./flowers.component.scss']
 })
 export class FlowersComponent implements OnInit {
   public listFlowers: Flower[];
   isDisabledCartButton;
-  constructor(public flowersService: FlowersService, public cartService: CartService, public ordersService: OrdersService ) { }
+
+  constructor(public flowersService: FlowersService,
+              public cartService: CartService
+              ) {
+  }
 
   ngOnInit(): void {
     this.getListFlower();
   }
+
   getListFlower(): void {
-    const dataOrder = this.ordersService.ordersPaid;
-    if (dataOrder != null){
-      this.listFlowers = this.ordersService.onChangeDataFlower();
-    }else {
+    const listFlower = this.flowersService.getDataFlower();
+    if (listFlower != null) {
+      this.listFlowers = listFlower;
+    } else {
       this.listFlowers = this.flowersService.getListFlower();
     }
   }
+
   addToCart(flower: Flower): void {
     this.cartService.addToCart(flower);
   }

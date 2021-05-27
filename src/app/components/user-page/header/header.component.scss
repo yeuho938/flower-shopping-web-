@@ -73,6 +73,59 @@
   height: 100%;
   background-color: rgba(0, 0, 0, .65);
   display: none;
+  &-header{
+    padding: 12px 24px;
+    text-align: center;
+    position: relative;
+  }
+  &-content{
+    background-color: white;
+    width:50%;
+    margin: auto;
+    border-radius: 3px;
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-image: url("https://www.jing.fm/clipimg/full/84-844990_sakura-flowers-background-png.png");
+  }
+  &-body{
+    padding: 12px 24px 24px;
+    margin: 0 auto;
+    width: 60%;
+    .label-userName, .label-password{
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .form-control{
+      padding: 8px 5px;
+      border-radius: 4px;
+      width: 80%;
+      margin: 10px 0;
+      border: 1px solid gray;
+    }
+    .btn-login{
+      margin: 10px auto;
+      padding: 10px 15px;
+      border-radius: 4px;
+      background: rgba(236, 51, 136, 0.88);
+      font-size: 1rem;
+      color: white;
+      border: none;
+      &:hover{
+       transition: 0.5s all;
+        background: #7836d7;
+      }
+    }
+  }
+  &-close{
+    float: right;
+    &:hover{
+      transition: 0.5s all;
+     color: red;
+      font-size: 1.1rem;
+    }
+  }
 }
 
 @keyframes fade {
@@ -84,23 +137,3 @@
   }
 }
 
-.modal-content {
-  background-color: white;
-  width:50%;
-  margin: auto;
-  border-radius: 3px;
-}
-.modal-close{
-  float: right;
-}
-.modal-header {
-  padding: 12px 24px;
-  text-align: center;
-  position: relative;
-}
-
-.modal-body {
-  padding: 12px 24px 24px;
-  margin: 0 auto;
-  width: 80%;
-}

@@ -5,27 +5,27 @@
     <li class="breadcrumb-item"><a routerLink="">Update flower </a></li>
   </ul>
   <h1 class="edit-flower-title"> Update flower</h1>
-  <form class="form--edit">
-   <div class="form--group-line1">
-     <div class="form--field name-flower">
-       <label class="field--label name"> Name</label><br>
-       <input class="field--input name" type ="text"  [(ngModel)]="flower.name" [ngModelOptions]="{standalone: true}">
-     </div>
-    <div class="form--field price-flower">
-      <label class="field--label price"> Price</label><br>
-      <input class="field--input price" type ="number" [(ngModel)]="flower.price" [ngModelOptions]="{standalone: true}" >
+  <form class="form--edit" [formGroup]="editForm">
+    <div class="form--group-line1">
+      <div class="form--field name-flower">
+        <label class="field--label name"> Name</label><br>
+        <input [(ngModel)]="flower.name" class="field--input name" formControlName="name" type="text">
+      </div>
+      <div class="form--field price-flower">
+        <label class="field--label price"> Price</label><br>
+        <input [(ngModel)]="flower.price" class="field--input price" type ="number"   formControlName="price" >
+      </div>
     </div>
-   </div>
-   <div class="form--group-line2" >
-     <div class="form--field image-flower">
-       <label class="field--label image"> Image</label><br>
-       <input class="field--input image" type ="text"  [(ngModel)]="flower.image" [ngModelOptions]="{standalone: true}">
-     </div>
-     <div class="form--field stock-flower">
-       <label class="field--label stock"> Remaining Stock</label><br>
-       <input class="field--input stock" type ="number"  [(ngModel)]="flower.remainingStock" [ngModelOptions]="{standalone: true}">
-     </div>
-   </div>
-    <button type ="submit" class="form--btn-update"> Update</button>
- </form>
+    <div class="form--group-line2" >
+      <div class="form--field image-flower">
+        <label class="field--label image"> Image</label><br>
+        <input class="field--input image" type ="text"  [(ngModel)]="flower.image"  formControlName="image">
+      </div>
+      <div class="form--field stock-flower">
+        <label class="field--label stock"> Remaining Stock</label><br>
+        <input class="field--input stock" type ="number"  [(ngModel)]="flower.remainingStock" formControlName="remainingStock">
+      </div>
+    </div>
+    <button type ="submit" class="form--btn-update" (click)="onEditData(flower.id)"> Update</button>
+  </form>
 </div>

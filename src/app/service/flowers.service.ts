@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Flower} from '../model/flower.class';
+import {Router} from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FlowersService {
-  private listFlowers: Flower[];
+  public listFlowers: Flower[];
 
-  constructor() {
+  constructor(public router: Router) {
   }
 
   getListFlower(): Flower[] {
@@ -91,11 +90,26 @@ export class FlowersService {
 
   getFlowerById(id: number): any {
     let getAnFlower = null;
-    for (const item of this.listFlowers) {
-      if (item.id === id) {
-        getAnFlower = item;
+    const dataFlower = JSON.parse(localStorage.getItem('listFlower'));
+    if (dataFlower != null) {
+      for (const item of dataFlower) {
+        if (item.id === id) {
+          getAnFlower = item;
+        }
+      }
+    } else {
+      for (const item of this.listFlowers) {
+        if (item.id === id) {
+          getAnFlower = item;
+        }
       }
     }
     return getAnFlower;
+  }
+  setDataFlower(data: any): any{
+    return localStorage.setItem('listFlower', JSON.stringify(data));
+  }
+  getDataFlower(): any{
+    return JSON.parse(localStorage.getItem('listFlower'));
   }
 }

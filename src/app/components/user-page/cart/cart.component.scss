@@ -15,6 +15,7 @@
 .box-cart {
   width: 70%;
   margin: 0 auto;
+
   .cart-title {
     font-size: 25px;
     padding: 20px 5px;
@@ -93,6 +94,12 @@
   }
 }
 
+.disabled {
+  pointer-events: none;
+  color: #AAA;
+  background: gray !important;
+}
+
 .col {
   &.id {
     flex-basis: 5%;
@@ -144,6 +151,17 @@
 
   &.delete {
     flex-basis: 20%;
+
+    .fas.fa-trash-alt {
+      font-size: 1.1rem;
+      color: red;
+
+      &:hover {
+        transition: 0.8s all;
+        color: #19c219;
+        font-size: 1.2rem;
+      }
+    }
 
     .btn-delete {
       background-color: red;

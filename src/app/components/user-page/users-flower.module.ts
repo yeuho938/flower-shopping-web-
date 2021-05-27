@@ -16,7 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {listRouteUser} from './users.router';
 import { FlowerDetailComponent } from './flowers/flower-detail/flower-detail.component';
 import { ListFlowersComponent } from './flowers/list-flowers/list-flowers.component';
-import {FlowersComponent} from './flowers/flowers/list-flowers.component';
+import {FlowersComponent} from './flowers/flowers/flowers.component';
 
 @NgModule({
   declarations: [

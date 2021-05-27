@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OrdersService} from '../../../../service/orders.service';
 import {UserService} from '../../../../service/user.service';
+import {Order} from '../../../../model/order.class';
 
 @Component({
   selector: 'app-list-order',
@@ -8,16 +9,14 @@ import {UserService} from '../../../../service/user.service';
   styleUrls: ['./list-order.component.scss']
 })
 export class ListOrderComponent implements OnInit {
-  public orders = [];
-  public totalPrice = 0;
+  public orders: any[] = [];
   isLoginSuccess: boolean;
   constructor(public orderService: OrdersService, public userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.orders = JSON.parse(localStorage.getItem('purchasedOrders'));
-    this.totalPrice = JSON.parse(localStorage.getItem('totalPriceCart'));
-    this.isLoginSuccess = this.userService.isLoginSuccess;
+    this.orders = this.orderService.getDataOrder();
+    this.isLoginSuccess = this.userService.getIsLogin();
   }
 
 }

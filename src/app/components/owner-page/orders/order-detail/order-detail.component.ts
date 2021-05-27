@@ -23,6 +23,6 @@ export class OrderDetailComponent implements OnInit {
     const id = (+this.activatedRoute.snapshot.params.id);
     this.orders = this.orderService.getOrderById(id);
     this.totalOrder = JSON.parse(localStorage.getItem('totalPriceCart'));
-    this.isLoginSuccess = this.userService.isLoginSuccess;
+    this.isLoginSuccess = this.userService.getIsLogin();
   }
 }

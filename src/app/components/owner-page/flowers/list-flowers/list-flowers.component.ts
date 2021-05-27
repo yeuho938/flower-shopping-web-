@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Flower} from '../../../../model/flower.class';
 import {FlowersService} from '../../../../service/flowers.service';
+import {OrdersService} from '../../../../service/orders.service';
 @Component({
   selector: 'app-list-flowers',
   templateUrl: './list-flowers.component.html',
@@ -11,7 +12,11 @@ export class ListFlowersComponent implements OnInit {
   constructor( public flowerService: FlowersService) { }
 
   ngOnInit(): void {
-  this.flowers = this.flowerService.getListFlower();
+    const listFlower = this.flowerService.getDataFlower();
+    if (listFlower != null){
+        this.flowers = listFlower;
+    }else {
+      this.flowers = this.flowerService.getListFlower();
+    }
   }
-
 }

@@ -1,16 +1,13 @@
 export class Order{
   id: number;
-  nameUser: string;
-  address: string;
-  phone: number;
+  dataUser: any;
+  dataCart: any;
   totalPrice: number;
-  idFlower: number;
 
-  constructor(id: number, name: string, add: string, phone: number, total: number, idFlower: number) {
+  constructor(id: number, dataUser: any, dataCart: any, total: number) {
     this.id = id;
-    this.nameUser = name;
-    this.address = add;
+    this.dataUser = dataUser;
+    this.dataCart = dataCart;
     this.totalPrice = total;
-    this.idFlower = idFlower;
   }
 }

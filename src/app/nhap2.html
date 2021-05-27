@@ -1,83 +1,31 @@
-<!--import {Injectable} from '@angular/core';-->
-<!--import {Flower} from '../model/flower.class';-->
-<!--import {Cart} from '../model/cart.class';-->
 
-<!--@Injectable({-->
-<!--providedIn: 'root'-->
-<!--})-->
-<!--export class CartService {-->
-<!--itemsCart: Cart[] = [];-->
-<!--dataInCart = JSON.parse(localStorage.getItem('infoCart'));-->
-<!--totalPrice = JSON.parse(localStorage.getItem('totalPriceCart'));-->
-<!--cartTotal = 0;-->
-<!--idCart = 1;-->
-
-<!--constructor() {-->
-<!--}-->
-
-<!--addToCart(flower: Flower): void {-->
-<!--let productExit;-->
-<!--if (this.dataInCart == null) {-->
-<!--this.itemsCart.push({-->
-<!--id: this.idCart,-->
-<!--idFlower: flower.id,-->
-<!--name: flower.name,-->
-<!--image: flower.image,-->
-<!--quantity: 1,-->
-<!--price: flower.price-->
-<!--});-->
-<!--localStorage.setItem('infoCart', JSON.stringify(this.itemsCart));-->
-<!--this.itemsCart.forEach(item => {-->
-<!--this.cartTotal += (item.quantity * item.price);-->
-<!--});-->
-<!--localStorage.setItem('totalPriceCart', JSON.stringify(this.cartTotal));-->
-<!--console.log('yeu');-->
-<!--} else {-->
-<!--console.log('yeu12');-->
-<!--for (const data in this.dataInCart) {-->
-<!--if (this.dataInCart[data].idFlower === flower.id) {-->
-<!--this.dataInCart[data].quantity++;-->
-<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
-<!--productExit = true;-->
-<!--}-->
-<!--}-->
-<!--if (!productExit){-->
-<!--this.dataInCart.push({-->
-<!--id: this.idCart++,-->
-<!--idFlower: flower.id,-->
-<!--name: flower.name,-->
-<!--image: flower.image,-->
-<!--quantity: 1,-->
-<!--price: flower.price-->
-<!--});-->
-<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
-<!--this.dataInCart.forEach(item => {-->
-<!--this.cartTotal += (item.quantity * item.price);-->
-<!--});-->
-<!--localStorage.setItem('totalPriceCart', JSON.stringify(this.cartTotal));-->
-<!--}-->
-<!--  }-->
-<!--alert('Add to cart successful');-->
-<!--}-->
-
-<!--deleteAnItem(id: number): void {-->
-<!--const index = this.dataInCart.findIndex(element => element.idFlower === id);-->
-<!--this.dataInCart = this.dataInCart.splice(index, 1);-->
-<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
-<!--}-->
-
-<!--onChangeQuantity(quantity: number, id: number, isIncrease: boolean): void {-->
-<!--const index = this.dataInCart.findIndex(element => element.idFlower === id);-->
-<!--if (isIncrease === true) {-->
-<!--this.dataInCart[index].quantity = quantity + 1;-->
-<!--} else {-->
-<!--this.dataInCart[index].quantity = quantity - 1;-->
-<!--}-->
-<!--localStorage.setItem('infoCart', JSON.stringify(this.dataInCart));-->
-<!--}-->
-
-<!--clearCart(): any {-->
-<!--this.itemsCart = [];-->
-<!--return this.itemsCart;-->
-<!--}-->
-<!--  }-->
+<!--<div class="edit-flower">-->
+<!--  <ul class="breadcrumb">-->
+<!--    <li class="breadcrumb-item"><a routerLink="/flower">List flower </a></li>-->
+<!--    <li class="breadcrumb-item"><a routerLink="">Update flower </a></li>-->
+<!--  </ul>-->
+<!--  <h1 class="edit-flower-title"> Update flower</h1>-->
+<!--  <form class="form&#45;&#45;edit" >-->
+<!--    <div class="form&#45;&#45;group-line1">-->
+<!--      <div class="form&#45;&#45;field name-flower">-->
+<!--        <label class="field&#45;&#45;label name"> Name</label><br>-->
+<!--        <input [(ngModel)]="flower.name" class="field&#45;&#45;input name"  type="text" [ngModelOptions]="{standalone: true}">-->
+<!--      </div>-->
+<!--      <div class="form&#45;&#45;field price-flower">-->
+<!--        <label class="field&#45;&#45;label price"> Price</label><br>-->
+<!--        <input [(ngModel)]="flower.price" class="field&#45;&#45;input price" type ="number"  [ngModelOptions]="{standalone: true}" >-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form&#45;&#45;group-line2" >-->
+<!--      <div class="form&#45;&#45;field image-flower">-->
+<!--        <label class="field&#45;&#45;label image"> Image</label><br>-->
+<!--        <input class="field&#45;&#45;input image" type ="text"  [(ngModel)]="flower.image" [ngModelOptions]="{standalone: true}" >-->
+<!--      </div>-->
+<!--      <div class="form&#45;&#45;field stock-flower">-->
+<!--        <label class="field&#45;&#45;label stock"> Remaining Stock</label><br>-->
+<!--        <input class="field&#45;&#45;input stock" type ="number"  [(ngModel)]="flower.remainingStock" [ngModelOptions]="{standalone: true}">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button type ="submit" class="form&#45;&#45;btn-update" (click)="onEditData()"> Update</button>-->
+<!--  </form>-->
+<!--</div>-->

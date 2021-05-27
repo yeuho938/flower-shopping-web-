@@ -35,6 +35,6 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     RouterModule.forRoot(listRouter),
     ReactiveFormsModule,
     FormsModule
-  ]
+  ],
 })
 export class OwnerFlowerModule { }

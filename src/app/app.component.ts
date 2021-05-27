@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from './service/user.service';
 
 @Component({
@@ -6,14 +6,13 @@ import {UserService} from './service/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnChanges{
+export class AppComponent implements OnInit{
   title = 'flowerApp';
   isLoginSuccess: boolean;
   constructor(public userService: UserService) {
   }
   ngOnInit(): void {
-    this.isLoginSuccess = this.userService.isLoginSuccess;
-  }
-  ngOnChanges(): void {
+    this.isLoginSuccess = this.userService.getIsLogin();
+    console.log(this.isLoginSuccess);
   }
 }

@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {User} from '../model/user.class';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
   isLoginSuccess = false;
   infoUser: User[] = [{
@@ -12,7 +11,7 @@ export class UserService {
     password: '123'
   }];
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public location: Location) {
   }
 
   getListImages(): any {
@@ -29,13 +28,24 @@ export class UserService {
   onLogin(username: string, password: string): void {
     for (const item of this.infoUser) {
       if (username === item.userName && password === item.password) {
-        alert('Login successful!');
         this.isLoginSuccess = true;
-        this.router.navigate(['home']);
+        this.setIsLogin(this.isLoginSuccess);
+        this.location.replaceState('/');
+        this.router.navigate(['owner-page']);
+        alert('Login successful!');
       } else {
         alert('Username or Password invalid');
         this.isLoginSuccess = false;
+        this.setIsLogin(this.isLoginSuccess);
       }
     }
+  }
+
+  setIsLogin(isLogin: boolean): void {
+    return localStorage.setItem('isLogin', String(isLogin));
+  }
+
+  getIsLogin(): boolean {
+    return JSON.parse(localStorage.getItem('isLogin'));
   }
 }

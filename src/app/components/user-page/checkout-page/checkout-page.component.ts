@@ -29,7 +29,7 @@ export class CheckoutPageComponent implements OnInit {
     this.totalPriceCart = JSON.parse(localStorage.getItem('totalPriceCart'));
   }
   onSubmitOrder(): void {
-    this.ordersService.onSubmitOrder(this.dataCarts , this.checkoutForm.value);
+    this.ordersService.onSubmitOrder(this.dataCarts , this.checkoutForm.value,  this.totalPriceCart );
     this.orderDisplay = 'block';
     this.checkoutForm.reset();
   }

@@ -10,6 +10,7 @@ import {Cart} from '../../../model/cart.class';
 export class CartComponent implements OnInit {
   dataCart: Cart[] = [];
   totalPrice = 0;
+  isProductExit = false;
 
   constructor(public cartService: CartService) {
   }
@@ -21,6 +22,9 @@ export class CartComponent implements OnInit {
   getDataCart(): void {
     this.dataCart = this.cartService.getCartData();
     this.totalPrice = this.cartService.getTotalPrice();
+    if (this.dataCart != null) {
+      this.isProductExit = true;
+    }
   }
 
   onDeleteItem(id: number): void {
@@ -36,5 +40,7 @@ export class CartComponent implements OnInit {
   clearCart(): void {
     localStorage.removeItem('infoCart');
     localStorage.removeItem('totalPriceCart');
+    this.isProductExit = false;
+    this.getDataCart();
   }
 }

@@ -12,6 +12,7 @@ export const listRouter: Routes = [
   {
     path: 'owner-page',
     component: DashboardComponent,
+    pathMatch: 'full'
   },
   {
     path: 'flower',

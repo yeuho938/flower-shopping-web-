@@ -9,7 +9,6 @@ import {UserService} from '../../../service/user.service';
 })
 export class HeaderComponent implements OnInit {
   isOpenModel = false;
-  isHomePage = false;
   loginForm = this.formBuilder.group({
     username: '',
     password: ''
@@ -21,16 +20,12 @@ export class HeaderComponent implements OnInit {
   ToggleModal(): void{
     this.isOpenModel = !this.isOpenModel;
   }
-  ToggleHomePage(): boolean{
-    this.isHomePage = !this.isHomePage;
-    return this.isHomePage;
-    console.log(this.isHomePage);
-  }
   onLogin(): void{
+    this.isOpenModel = !this.isOpenModel;
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
     this.userService.onLogin(username, password);
+    this.userService.getIsLogin();
     this.loginForm.reset();
-    this.isOpenModel = !this.isOpenModel;
   }
 }

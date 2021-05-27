@@ -17,11 +17,11 @@
           </div>
           <div class="modal-body">
             <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-              <label > Username</label><br>
-              <input type="text" placeholder="Enter your username" formControlName="username"><br>
-              <label>Password</label><br>
-              <input type="text" placeholder="Enter your password" formControlName="password"><br>
-              <button type="submit">Login</button>
+              <label class="label-userName"> Username</label><br>
+              <input type="text" placeholder="Enter your username" formControlName="username" class="form-control userName" required><br>
+              <label class="label-password">Password</label><br>
+              <input type="text" placeholder="Enter your password" formControlName="password" class="form-control password" required><br>
+              <button type="submit" class="btn-login">Login</button>
             </form>
           </div>
         </div>
@@ -31,9 +31,9 @@
   </div>
   <div class="header--second">
    <ul class="menu">
-     <li class="menu--item" routerLink="/home" (click)="ToggleHomePage()">HOME</li>
-     <li class="menu--item" routerLink="/list-flower" (click)="ToggleHomePage()"> FLOWER</li>
-     <li class="menu--item">BLOG</li>
+     <li class="menu--item" routerLink="/home">HOME</li>
+     <li class="menu--item" routerLink="/list-flower">FLOWER</li>
+     <li class="menu--item" routerLink="/owner"> BLOG</li>
      <li class="menu--item">ABOUT US</li>
      <li class="menu--item">CONTACT</li>
    </ul>

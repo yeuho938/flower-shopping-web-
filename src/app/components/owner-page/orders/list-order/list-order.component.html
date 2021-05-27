@@ -1,7 +1,6 @@
 <div class="list-order-owner">
   <ul class="breadcrumb">
     <div *ngIf="isLoginSuccess; else OrderUserPage ">
-    <li class="breadcrumb-item" ><a routerLink="/home">Home</a></li>
     <li class="breadcrumb-item"><a routerLink="/order">Order </a></li>
     </div>
     <ng-template #OrderUserPage>
@@ -24,7 +23,7 @@
       <div class="col name-user" >{{order.info.name}}</div>
       <div class="col phone" >{{order.info.phone}}</div>
       <div class="col address" >{{order.info.address}}</div>
-      <div class="col total-price" >{{totalPrice}}</div>
+      <div class="col total-price" >{{order.totalPrice}}</div>
       <div class="col view-detail">
         <div *ngIf="isLoginSuccess; else OrderUserPage ">
           <button type="submit" class="btn-view-detail" [routerLink]="['/order', order.id]">
